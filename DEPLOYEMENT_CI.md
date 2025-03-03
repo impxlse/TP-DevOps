@@ -17,3 +17,20 @@ Notre application utilise GitHub Actions pour automatiser le déploiement.
 2. Construction de l'image Docker
 3. Push vers Docker Hub
 4. Déploiement automatique en production
+
+# Déploiement automatisé avec CI/CD
+
+Ce document décrit comment configurer le déploiement automatisé via GitHub Actions.
+
+## Avantages du CI/CD
+
+- Déploiement automatique à chaque push sur main
+- Vérification de qualité systématique
+- Cohérence entre environnements
+- Traçabilité des déploiements
+
+## Configuration requise
+
+- Compte GitHub
+- Docker Hub
+- Serveur de production
