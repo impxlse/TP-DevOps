@@ -3,12 +3,12 @@ FROM node:16-alpine as build
 WORKDIR /app
 
 # Optimisation des couches de cache
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm ci
 
 # Copie du reste des fichiers
 COPY . .
-RUN npm run build -- --configuration production
+RUN npm run build
 
 # Étape 2: Servir l'application avec NGINX
 FROM nginx:alpine
