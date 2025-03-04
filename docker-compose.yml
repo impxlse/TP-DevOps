@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # Environnement de production
+  production:
+    image: angular-app:1.1
+    container_name: angular-production
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+
+  # Environnement de développement
+  development:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: angular-development
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "4200:4200"
+    command: npm start
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
