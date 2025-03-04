@@ -1,10 +1,10 @@
 # Étape 1: Build de l'application
 FROM node:16 as build
 WORKDIR /app
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm i -f
 COPY . .
-RUN npm run build --configuration production
+RUN npm run build
 
 # Étape 2: Servir l'application avec NGINX
 FROM nginx:alpine
